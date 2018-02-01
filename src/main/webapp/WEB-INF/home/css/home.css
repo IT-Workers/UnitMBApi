@@ -1,0 +1,18 @@
+.top-content{
+	background: #4D7A97;border-bottom: 1px black solid;
+}
+#userName{
+	font-size: 16px; vertical-align: middle;
+}
+.doc-list{
+	padding: 0px;
+}
+.doc-list .subheader .md-subheader-inner{
+	padding: 0px;
+}
+.doc-list .subheader span{
+	font-weight: bold; 
+}
+.doc-list .chile-menu-list .md-list-item-text{
+	margin-left: 16px;
+}

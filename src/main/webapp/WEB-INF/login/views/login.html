@@ -1,0 +1,28 @@
+<div layout="row" layout-fill class="login-content">
+	<form name="LginForm" layout-padding ng-submit="login()" >
+		<div layout="column" >
+			<md-input-container class="md-block">
+	      		<md-icon md-font-icon="fa fa-user" style="font-size: 30px;"></md-icon>
+	      		<input ng-model="user.userName" type="text" placeholder="用户名" ng-required="true" name="userName">
+	      		<div ng-messages="LginForm.userName.$error">
+	            	<div ng-message="required">请输入用户名！</div>
+	          	</div>
+	    	</md-input-container>
+		</div>
+		<div layout="column">
+			<md-input-container class="md-block">
+	      		<md-icon md-font-icon="fa fa-unlock-alt" style="font-size: 30px;"></md-icon>
+	      		<input ng-model="user.passWord" type="password" placeholder="密码" ng-required="true" name="passWord">
+	      		<div ng-messages="LginForm.passWord.$error">
+	            	<div ng-message="required">请输入密码！</div>
+	          	</div>
+	    	</md-input-container>
+		</div>
+		<div layout="column">
+			<md-button type="submit" class="md-raised md-primary" >
+				<md-icon md-font-icon="fa fa-spinner fa-pulse fa-2x fa-fw" ng-show="isLoading"></md-icon>
+				<lable ng-hide="isLoading">登录</lable>
+			</md-button>
+		</div>
+	</form>
+</div>

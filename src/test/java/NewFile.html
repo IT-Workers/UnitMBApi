@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+#id:hover{
+	background: red;
+}
+#id:hover .name{
+	background: black; color: gray;
+}
+
+</style>
+</head>
+<body>
+
+<form id="id"  action="http://127.0.0.1:8080/UnitMBApi/user/add" method="POST" >
+	<input type="text" name="userName"/></br>
+	<input type="text" name="passWord"/></br>
+	<input type="text" name="userName"/></br>
+	<input type="text" name="passWord"/></br>
+	<input class="name" type="submit" value="GO">
+</form>
+
+</body>
+</html>

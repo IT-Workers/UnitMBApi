@@ -1,0 +1,51 @@
+.doc-edit{
+	color: #4A6782;
+}
+.doc-save{
+	color: #F8981D;
+}
+.doc-title{
+	background:#dee3e9;	border-bottom: 1px #DDDDDD solid;
+}
+.doc-title .md-subheader-inner{
+	padding: 0px;
+}
+.doc-title span{
+	font-style: italic; font-weight: bold;color: #4A6782;
+}
+.doc-sub-title{
+	display: inline-table;font-weight: bold;font-size: 14px;color: #333333;
+}
+.val-item{
+	margin: 0px; padding: 0px;
+}
+.val-item .md-errors-spacer{
+	visibility: hidden;
+}
+.val-item textarea{
+	color: #333;border-color: #F8981D;
+}
+.val-item textarea:disabled{
+	color: #333;
+}
+.val-item textarea:focus{
+	border-color: #F8981D !important;
+}
+.val-item md-select-value{
+	color: #333; border-color: #F8981D;
+}
+.val-item .md-select-value :focus{
+	border-bottom-color: #F8981D !important;
+}
+.val-item:not([disabled]):focus .md-select-value {
+    border-bottom-color: #F8981D !important;
+}
+.select-val-option[selected] {
+	color: #F8981D !important;
+}
+.from-error .md-toast-content{
+	background: #F8981D !important;color: red !important;
+}
+.from-success .md-toast-content{
+	background: #6db33f !important;
+}
