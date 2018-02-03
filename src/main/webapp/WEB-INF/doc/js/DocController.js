@@ -61,8 +61,11 @@ angular_material.controller('doc', function($scope, $state, $stateParams, $mdToa
 			.toastClass('from-error')
 		);
 	};
+	/**
+	 * 编辑文档简介
+	 */
 	$scope.detailEdit = function(event, from){
-		var spacer = angular.element(document.querySelectorAll('.md-errors-spacer'));
+		var spacer = angular.element(document.querySelectorAll("form[name='"+from.$name+"'] .md-errors-spacer"));
 		if($scope.edit.detail && from.$valid){
 			$scope.edit.detail = false;
 			spacer.css('visibility', 'hidden');
@@ -79,5 +82,28 @@ angular_material.controller('doc', function($scope, $state, $stateParams, $mdToa
 			$scope.edit.detail = true;
 			spacer.css('visibility', 'visible');
 		}
-	}
+	};
+	/**
+	 * 编辑code编码
+	 */
+	$scope.codeEdit = function(event, from){
+		var spacer = angular.element(document.querySelectorAll("form[name='"+from.$name+"'] .md-errors-spacer"));
+		if($scope.edit.code && from.$valid){
+			$scope.edit.code = false;
+			spacer.css('visibility', 'hidden');
+			/*editDocument({
+				documentId:$scope.document.documentId,
+				description:$scope.document.description,
+				httpUrl:$scope.document.httpUrl,
+				methodType:$scope.document.methodType
+			});*/
+			console.log($scope.document.codes);
+		}else if($scope.edit.code && !from.$valid){
+			showError('数据格式有误！');
+			return false;
+		}else{
+			$scope.edit.code = true;
+			spacer.css('visibility', 'visible');
+		}
+	};
 });

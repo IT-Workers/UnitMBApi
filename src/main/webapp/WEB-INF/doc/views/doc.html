@@ -17,10 +17,9 @@
 					<div layout="row" layout-padding layout-fill>
 						<div class="doc-sub-title">1.1&nbsp;接口描述：</div>
 						<md-input-container class="val-item" md-no-float layout-fill>
-	          				<textarea name="description"  placeholder="接口描述" required ng-model="document.description" md-maxlength="300" ng-disabled="!edit.detail"></textarea>
+	          				<textarea name="description"  placeholder="接口描述" required ng-model="document.description" maxlength="300"  md-maxlength="300" ng-disabled="!edit.detail"></textarea>
 	          				 <div ng-messages="documentForm.description.$error">
 						         <div ng-message="required">请输入接口描述！</div>
-						         <div ng-message="md-maxlength">接口描述最大长度为300！</div>
 					         </div>
 	        			</md-input-container>
 					</div>
@@ -29,10 +28,9 @@
 					<div layout="row" layout-padding layout-fill>
 						<div class="doc-sub-title">1.2&nbsp;接口地址：</div>
 						<md-input-container class="val-item" md-no-float layout-fill>
-	          				<textarea name="httpUrl"  placeholder="接口地址" required ng-model="document.httpUrl" md-maxlength="100" ng-disabled="!edit.detail" ng-pattern="urlPattern" ></textarea>
+	          				<input type="text" name="httpUrl" placeholder="接口地址" required ng-model="document.httpUrl" maxlength="100" md-maxlength="100" ng-disabled="!edit.detail" ng-pattern="urlPattern" ></input>
 	          				<div ng-messages="documentForm.httpUrl.$error">
 						         <div ng-message="required">请输入接口地址！</div>
-						         <div ng-message="md-maxlength">接口地址最大长度为100！</div>
 						         <div ng-message="pattern">请输入正确的http或者https接口地址格式！</div>
 					         </div>
 	        			</md-input-container>
@@ -99,25 +97,36 @@
 		</md-list>
 	</section>
 	
-	<section>
-		<md-subheader class="doc-title">
-			<md-list-item >
-				<div class="md-list-item-text" layout="row">
-					<span>4.&nbsp;错误编码</span>
-					<md-button class="md-icon-button md-secondary" aria-label="More">
-        				<md-icon md-font-icon="fa fa-pencil-square-o fa-lg"></md-icon>
-      				</md-button>
-				</div>
-			</md-list-item>
-		</md-subheader>
-		<md-list layout-padding> 
-			<md-list-item ng-repeat="code in document.codes"> 
-				<div layout="row" layout-padding>
-					<div class="doc-sub-title" ng-bind="code.codeNumber"></div>
-					<div layout-nowrap ng-bind="code.description"></div>
-				</div>
-			</md-list-item> 
-		</md-list>
+	<section> 
+		<form name="codeForm">
+			<md-subheader class="doc-title">
+				<md-list-item >
+					<div class="md-list-item-text" layout="row">
+						<span>4.&nbsp;错误编码</span>
+						<md-button class="md-icon-button md-secondary" aria-label="More" ng-click="codeEdit($event, codeForm)">
+	        				<md-icon ng-if="!edit.code" md-font-icon="fa fa-pencil-square-o fa-lg" class="doc-edit"></md-icon>
+	        				<md-icon ng-if="edit.code" md-font-icon="fa fa-floppy-o fa-lg" class="doc-save"></md-icon>
+	      				</md-button>
+					</div>
+				</md-list-item>
+			</md-subheader>
+			<md-list layout-padding>
+				<md-list-item ng-repeat="code in document.codes" >
+					<md-input-container class="val-item" md-no-float>
+	  					<input type="text" name="codeNumber{{$index}}" placeholder="编码" required ng-model="code.codeNumber" maxlength="10" ng-disabled="!edit.code"></input>
+	      				<div ng-messages="codeForm.$error.required[$index].$error">
+	      					<div ng-message="required && required[$index].$name == 'codeNumber{{$index}}'">请输入编码！</div>
+	      				</div>
+	    			</md-input-container>
+					<md-input-container class="val-item" md-no-float layout-fill>
+						<input type="text" name="description{{$index}}" placeholder="编码描述" required ng-model="code.description" maxlength="100" md-maxlength="100" ng-disabled="!edit.code"></input>
+						<div ng-messages="codeForm.$error.required[$index].$error">
+	      					<div ng-message="required && required[$index].$name == 'description{{$index}}'">请输入编码描述！</div>
+	      				</div>
+					</md-input-container>
+				</md-list-item> 
+			</md-list>
+		</form>
 	</section>
 
 

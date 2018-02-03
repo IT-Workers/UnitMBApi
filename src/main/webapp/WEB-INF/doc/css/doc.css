@@ -22,6 +22,7 @@
 .val-item .md-errors-spacer{
 	visibility: hidden;
 }
+
 .val-item textarea{
 	color: #333;border-color: #F8981D;
 }
@@ -31,6 +32,17 @@
 .val-item textarea:focus{
 	border-color: #F8981D !important;
 }
+
+.val-item input{
+	color: #333;border-color: #F8981D;
+}
+.val-item input:disabled{
+	color: #333;
+}
+.val-item input:focus{
+	border-color: #F8981D !important;
+}
+
 .val-item md-select-value{
 	color: #333; border-color: #F8981D;
 }
@@ -43,6 +55,7 @@
 .select-val-option[selected] {
 	color: #F8981D !important;
 }
+
 .from-error .md-toast-content{
 	background: #F8981D !important;color: red !important;
 }
