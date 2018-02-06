@@ -1,12 +1,16 @@
 package com.unitmb.api.document.controller;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.context.annotation.Scope;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.unitmb.api.document.model.APICode;
 import com.unitmb.api.document.model.APIDocument;
 import com.unitmb.api.document.service.DocumentService;
 import com.unitmb.api.internal.controller.UnitMBApiController;
@@ -33,5 +37,15 @@ public class DocumentController extends UnitMBApiController{
 			success(SAVE_FAIL_MESSAGE, PROMPT_TOAST_TYPE);
 		}
 		
+	}
+	
+	@RequestMapping(path = "/codes/edit", method = RequestMethod.POST)
+	public void docCodesEdit(@RequestBody List<APICode> codes) {
+		boolean isOk = documentService.saveOrUpdateAPICodes(codes);
+		if(isOk) {
+			success(SAVE_SUCCESS_MESSAGE, PROMPT_TOAST_TYPE);
+		}else {
+			success(SAVE_FAIL_MESSAGE, PROMPT_TOAST_TYPE);
+		}
 	}
 }

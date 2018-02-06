@@ -7,6 +7,7 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.unitmb.api.document.model.APICode;
 import com.unitmb.api.document.model.APIDocument;
 import com.unitmb.api.internal.dao.UnitMBApiDao;
 
@@ -68,6 +69,14 @@ public class DocumentDao  extends UnitMBApiDao {
 	public int saveOrUpdateAPIDocument(APIDocument document) {
 		String insert = "replace into Document(documentId, httpUrl, methodType, description)values(?, ?, ?, ?)";
 		return jdbcTemplate.update(insert, document.getDocumentId(), document.getHttpUrl(), document.getMethodType(), document.getDescription());
+	}
+
+	public int saveOrUpdateAPICodes(List<APICode> codes) {
+		String insert = "replace into Code(codeId, codeNumber, description, documentId) values ";
+		for(int i=0; i<codes.size(); i++) {
+			insert += ("(?, ?, ?, ?)" + (i == codes.size() - 1 ? ";" : ","));
+		}
+		return jdbcTemplate.update(insert, codes.toArray());
 	}
 
 }

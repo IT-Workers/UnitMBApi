@@ -111,7 +111,7 @@
 				</md-list-item>
 			</md-subheader>
 			<md-list layout-padding>
-				<md-list-item ng-repeat="code in document.codes" >
+				<md-list-item ng-repeat="code in document.codes track by $index" >
 					<md-input-container class="val-item" md-no-float>
 	  					<input type="text" name="codeNumber{{$index}}" placeholder="编码" required ng-model="code.codeNumber" maxlength="10" ng-disabled="!edit.code"></input>
 	      				<div ng-messages="codeForm.$error.required[$index].$error">

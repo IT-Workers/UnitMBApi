@@ -41,6 +41,10 @@ angular_material.controller('doc', function($scope, $state, $stateParams, $mdToa
 		$UnitMBHttp.postFrom('doc/edit', document).success(function(data, status, headers, config){
 		});
 	};
+	function editCode(codes){
+		$UnitMBHttp.post('doc/codes/edit', codes).success(function(data, status, headers, config){
+		});
+	};
 	/**
 	 * 文档的编辑状态
 	 */
@@ -91,13 +95,7 @@ angular_material.controller('doc', function($scope, $state, $stateParams, $mdToa
 		if($scope.edit.code && from.$valid){
 			$scope.edit.code = false;
 			spacer.css('visibility', 'hidden');
-			/*editDocument({
-				documentId:$scope.document.documentId,
-				description:$scope.document.description,
-				httpUrl:$scope.document.httpUrl,
-				methodType:$scope.document.methodType
-			});*/
-			console.log($scope.document.codes);
+			editCode($scope.document.codes);
 		}else if($scope.edit.code && !from.$valid){
 			showError('数据格式有误！');
 			return false;

@@ -183,18 +183,18 @@ angular_material.service('$UnitMBHttp', function($http, $mdToast, $mdDialog) {
 	 */
 	this.post = function(url, data, options){
 		if(options){
-			return new Response($http.post(url, data, options));
+			return new Response($http.post(url, JSON.stringify(data), options));
 		}
-		return new Response($http.post(url, data));
+		return new Response($http.post(url, JSON.stringify(data)));
 	};
 	/**
 	 * http put 请求
 	 */
 	this.put = function(url, options){
 		if(options){
-			return new Response($http.put(url, data, options));
+			return new Response($http.put(url, JSON.stringify(data), options));
 		}
-		return new Response($http.put(url, data));
+		return new Response($http.put(url, JSON.stringify(data)));
 	};
 	
 	/**
