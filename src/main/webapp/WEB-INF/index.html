@@ -5,27 +5,12 @@
 <meta name="renderer" content="webkit">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- Angular Material style sheet -->
-<link rel="stylesheet" href="resources/css/angular_material/angular-material.min.css">
-<link rel="stylesheet" href="resources/font/css/font-awesome.min.css">
 </head>
-<body ng-app="app" ng-cloak>
-
-	<section layout="row" layout-fill ui-view='main'></section>
-
-	<!-- Angular Material requires Angular.js Libraries -->
-	<script src="resources/js/angularjs/angular.min.js"></script>
-	<script src="resources/js/angularjs/angular-animate.min.js"></script>
-	<script src="resources/js/angularjs/angular-aria.min.js"></script>
-	<script src="resources/js/angularjs/angular-messages.min.js"></script>
-	<script src="resources/js/angularjs/angular-ui-router.min.js"></script>
-	
-	<!-- Angular Material Library -->
-	<script src="resources/js/angular_material/angular-material.min.js"></script>
-	<script src="resources/js/ocLazyLoad/ocLazyLoad.min.js"></script>
-	
-	<!-- Your application bootstrap  -->
-	<script src="app.js"></script>
+<body>
+	<form action="data/content" method="POST">
+		<input type="search" name="keyword" style="width: 300px; height: 30px">
+		<input type="submit" value="GO" style="width: 80px; height: 30px">
+	</form>
 </body>
 </html>
 
